@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Intentionally vulnerable AndroidManifest.xml for testing MAST scanner -->
+<!-- Intentionally vulnerable AndroidManifest.xml for testing MAST scanner v2.0 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.vulnerable"
     android:versionCode="1"
@@ -9,15 +9,20 @@
         android:minSdkVersion="19"
         android:targetSdkVersion="33" />
 
-    <!-- Dangerous permissions -->
+    <!-- Dangerous permissions (MAST-MANIFEST-009) -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- MAST-MANIFEST-010: Overlay permission -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- MAST-PRIV-004: Background location tracking -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -27,7 +32,7 @@
         android:icon="@mipmap/ic_launcher"
         android:taskAffinity="com.example.other">
 
-        <!-- Exported activity without permission -->
+        <!-- Exported activity without permission (launcher — skipped by scanner) -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -37,7 +42,7 @@
             </intent-filter>
         </activity>
 
-        <!-- Exported activity with deep link -->
+        <!-- MAST-MANIFEST-003: Exported activity with deep link -->
         <activity
             android:name=".DeepLinkActivity"
             android:exported="true">
@@ -49,17 +54,17 @@
             </intent-filter>
         </activity>
 
-        <!-- Exported service without permission -->
+        <!-- MAST-MANIFEST-004: Exported service without permission -->
         <service
             android:name=".BackgroundService"
             android:exported="true" />
 
-        <!-- Exported broadcast receiver -->
+        <!-- MAST-MANIFEST-005: Exported broadcast receiver -->
         <receiver
             android:name=".DataReceiver"
             android:exported="true" />
 
-        <!-- Exported content provider without permissions -->
+        <!-- MAST-MANIFEST-006: Exported content provider without permissions -->
         <provider
             android:name=".UserDataProvider"
             android:authorities="com.example.vulnerable.provider"

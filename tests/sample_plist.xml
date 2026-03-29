@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!-- Intentionally vulnerable Info.plist for testing MAST scanner -->
+<!-- Intentionally vulnerable Info.plist for testing MAST scanner v2.0 -->
 <plist version="1.0">
 <dict>
     <key>CFBundleDevelopmentRegion</key>
@@ -17,14 +17,22 @@
     <string>1.0</string>
     <key>CFBundleShortVersionString</key>
     <string>1.0.0</string>
+
+    <!-- MAST-IOS-PLIST-006: Low minimum OS version -->
     <key>MinimumOSVersion</key>
     <string>12.0</string>
 
-    <!-- ATS disabled - insecure -->
+    <!-- MAST-IOS-PLIST-001: ATS disabled -->
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSAllowsArbitraryLoads</key>
         <true/>
+        <!-- MAST-IOS-PLIST-005: Additional ATS exceptions -->
+        <key>NSAllowsArbitraryLoadsInWebContent</key>
+        <true/>
+        <key>NSAllowsLocalNetworking</key>
+        <true/>
+        <!-- MAST-IOS-PLIST-002: Exception domains with insecure HTTP -->
         <key>NSExceptionDomains</key>
         <dict>
             <key>insecure.example.com</key>
@@ -34,10 +42,16 @@
                 <key>NSIncludesSubdomains</key>
                 <true/>
             </dict>
+            <!-- MAST-IOS-NET-004: Weak TLS version in exception -->
+            <key>legacy-api.example.com</key>
+            <dict>
+                <key>NSExceptionMinimumTLSVersion</key>
+                <string>TLSv1.0</string>
+            </dict>
         </dict>
     </dict>
 
-    <!-- Custom URL schemes -->
+    <!-- MAST-IOS-PLIST-003: Custom URL schemes -->
     <key>CFBundleURLTypes</key>
     <array>
         <dict>
@@ -49,7 +63,32 @@
         </dict>
     </array>
 
-    <!-- Keychain access groups -->
+    <!-- MAST-IOS-PLIST-004: Queried URL schemes (excessive) -->
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>fb</string>
+        <string>twitter</string>
+        <string>instagram</string>
+        <string>whatsapp</string>
+        <string>telegram</string>
+        <string>snapchat</string>
+        <string>tiktok</string>
+        <string>linkedin</string>
+        <string>pinterest</string>
+        <string>reddit</string>
+        <string>discord</string>
+    </array>
+
+    <!-- MAST-IOS-PLIST-007: Background modes -->
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>location</string>
+        <string>fetch</string>
+        <string>remote-notification</string>
+        <string>bluetooth-central</string>
+    </array>
+
+    <!-- MAST-IOS-PLIST-008: Multiple Keychain access groups -->
     <key>keychain-access-groups</key>
     <array>
         <string>$(AppIdentifierPrefix)com.example.vulnerable</string>
