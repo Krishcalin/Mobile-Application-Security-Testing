@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Intentionally vulnerable Info.plist for testing MAST scanner -->
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en</string>
+    <key>CFBundleDisplayName</key>
+    <string>VulnerableApp</string>
+    <key>CFBundleExecutable</key>
+    <string>VulnerableApp</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.example.vulnerable</string>
+    <key>CFBundleName</key>
+    <string>VulnerableApp</string>
+    <key>CFBundleVersion</key>
+    <string>1.0</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
+    <key>MinimumOSVersion</key>
+    <string>12.0</string>
+
+    <!-- ATS disabled - insecure -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>insecure.example.com</key>
+            <dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+            </dict>
+        </dict>
+    </dict>
+
+    <!-- Custom URL schemes -->
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>vulnapp</string>
+                <string>vulnapp-auth</string>
+            </array>
+        </dict>
+    </array>
+
+    <!-- Keychain access groups -->
+    <key>keychain-access-groups</key>
+    <array>
+        <string>$(AppIdentifierPrefix)com.example.vulnerable</string>
+        <string>$(AppIdentifierPrefix)com.example.shared</string>
+    </array>
+</dict>
+</plist>

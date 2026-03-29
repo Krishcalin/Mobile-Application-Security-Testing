@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa"/>
+      <stop offset="100%" style="stop-color:#818cf8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="300" rx="16" fill="url(#bg)"/>
+
+  <!-- Subtle dot grid -->
+  <g opacity="0.05">
+    <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#fff"/>
+    </pattern>
+    <rect width="1200" height="300" fill="url(#dots)"/>
+  </g>
+
+  <!-- Mobile phone icon -->
+  <g transform="translate(100, 150)">
+    <!-- Phone body -->
+    <rect x="-35" y="-65" width="70" height="130" rx="10" fill="none" stroke="url(#iconGrad)" stroke-width="3" opacity="0.9"/>
+    <!-- Screen -->
+    <rect x="-28" y="-52" width="56" height="95" rx="4" fill="#1e1b4b" opacity="0.6"/>
+    <!-- Home button -->
+    <circle cx="0" cy="55" r="5" fill="none" stroke="#a78bfa" stroke-width="1.5" opacity="0.6"/>
+    <!-- Shield on screen -->
+    <g transform="translate(0, -10)">
+      <path d="M0,-25 L18,-17 L18,8 C18,20 9,27 0,32 C-9,27 -18,20 -18,8 L-18,-17 Z"
+            fill="#a78bfa" opacity="0.3"/>
+      <path d="M0,-18 L13,-12 L13,5 C13,14 7,19 0,23 C-7,19 -13,14 -13,5 L-13,-12 Z"
+            fill="#1e1b4b" opacity="0.8"/>
+      <!-- Checkmark -->
+      <polyline points="-6,0 -2,5 7,-5" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <!-- Signal waves -->
+    <g transform="translate(42, -40)" stroke="#a78bfa" fill="none" stroke-width="1.5" opacity="0.5">
+      <path d="M0,0 Q8,-8 0,-16"/>
+      <path d="M5,3 Q16,-8 5,-19"/>
+      <path d="M10,6 Q24,-8 10,-22"/>
+    </g>
+  </g>
+
+  <!-- Title -->
+  <text x="200" y="105" font-family="'Segoe UI',system-ui,sans-serif" font-size="46" font-weight="700" fill="#ffffff" letter-spacing="-1">
+    MAST Scanner
+  </text>
+
+  <!-- Subtitle -->
+  <text x="200" y="145" font-family="'Segoe UI',system-ui,sans-serif" font-size="19" fill="#c4b5fd" letter-spacing="0.5">
+    Mobile Application Security Testing
+  </text>
+
+  <!-- Description -->
+  <text x="200" y="178" font-family="'Segoe UI',system-ui,sans-serif" font-size="13.5" fill="#ddd6fe" opacity="0.85">
+    Static analysis for Android APK &amp; iOS IPA | OWASP Mobile Top 10 2024 | Zero dependencies
+  </text>
+
+  <!-- Tags row 1 -->
+  <g transform="translate(200, 198)">
+    <rect x="0" y="0" width="72" height="22" rx="4" fill="#fff" opacity="0.15"/>
+    <text x="36" y="15" font-family="monospace" font-size="10.5" fill="#ede9fe" text-anchor="middle">Android</text>
+
+    <rect x="80" y="0" width="46" height="22" rx="4" fill="#fff" opacity="0.15"/>
+    <text x="103" y="15" font-family="monospace" font-size="10.5" fill="#ede9fe" text-anchor="middle">iOS</text>
+
+    <rect x="134" y="0" width="72" height="22" rx="4" fill="#fff" opacity="0.15"/>
+    <text x="170" y="15" font-family="monospace" font-size="10.5" fill="#ede9fe" text-anchor="middle">Manifest</text>
+
+    <rect x="214" y="0" width="66" height="22" rx="4" fill="#fff" opacity="0.15"/>
+    <text x="247" y="15" font-family="monospace" font-size="10.5" fill="#ede9fe" text-anchor="middle">Secrets</text>
+
+    <rect x="288" y="0" width="62" height="22" rx="4" fill="#fff" opacity="0.15"/>
+    <text x="319" y="15" font-family="monospace" font-size="10.5" fill="#ede9fe" text-anchor="middle">Crypto</text>
+
+    <rect x="358" y="0" width="74" height="22" rx="4" fill="#fff" opacity="0.15"/>
+    <text x="395" y="15" font-family="monospace" font-size="10.5" fill="#ede9fe" text-anchor="middle">WebView</text>
+
+    <rect x="440" y="0" width="56" height="22" rx="4" fill="#fff" opacity="0.15"/>
+    <text x="468" y="15" font-family="monospace" font-size="10.5" fill="#ede9fe" text-anchor="middle">Plist</text>
+
+    <rect x="504" y="0" width="66" height="22" rx="4" fill="#fff" opacity="0.15"/>
+    <text x="537" y="15" font-family="monospace" font-size="10.5" fill="#ede9fe" text-anchor="middle">Binary</text>
+  </g>
+
+  <!-- Tags row 2 -->
+  <g transform="translate(200, 228)">
+    <rect x="0" y="0" width="54" height="22" rx="4" fill="#fff" opacity="0.15"/>
+    <text x="27" y="15" font-family="monospace" font-size="10.5" fill="#ede9fe" text-anchor="middle">SSL</text>
+
+    <rect x="62" y="0" width="78" height="22" rx="4" fill="#fff" opacity="0.15"/>
+    <text x="101" y="15" font-family="monospace" font-size="10.5" fill="#ede9fe" text-anchor="middle">Storage</text>
+
+    <rect x="148" y="0" width="96" height="22" rx="4" fill="#fff" opacity="0.15"/>
+    <text x="196" y="15" font-family="monospace" font-size="10.5" fill="#ede9fe" text-anchor="middle">Permissions</text>
+
+    <rect x="252" y="0" width="66" height="22" rx="4" fill="#fff" opacity="0.15"/>
+    <text x="285" y="15" font-family="monospace" font-size="10.5" fill="#ede9fe" text-anchor="middle">MASVS</text>
+
+    <rect x="326" y="0" width="58" height="22" rx="4" fill="#fff" opacity="0.15"/>
+    <text x="355" y="15" font-family="monospace" font-size="10.5" fill="#ede9fe" text-anchor="middle">SARIF</text>
+
+    <rect x="392" y="0" width="56" height="22" rx="4" fill="#fff" opacity="0.15"/>
+    <text x="420" y="15" font-family="monospace" font-size="10.5" fill="#ede9fe" text-anchor="middle">CI/CD</text>
+  </g>
+
+  <!-- Right panel: stats -->
+  <g transform="translate(830, 65)">
+    <rect x="0" y="0" width="100" height="64" rx="10" fill="#fff" opacity="0.12"/>
+    <text x="50" y="30" font-family="'Segoe UI',sans-serif" font-size="24" font-weight="800" fill="#fff" text-anchor="middle">80</text>
+    <text x="50" y="50" font-family="'Segoe UI',sans-serif" font-size="9" fill="#ddd6fe" text-anchor="middle" letter-spacing="1">RULES</text>
+
+    <rect x="110" y="0" width="100" height="64" rx="10" fill="#fff" opacity="0.12"/>
+    <text x="160" y="30" font-family="'Segoe UI',sans-serif" font-size="24" font-weight="800" fill="#fff" text-anchor="middle">14</text>
+    <text x="160" y="50" font-family="'Segoe UI',sans-serif" font-size="9" fill="#ddd6fe" text-anchor="middle" letter-spacing="1">MODULES</text>
+
+    <rect x="220" y="0" width="100" height="64" rx="10" fill="#fff" opacity="0.12"/>
+    <text x="270" y="30" font-family="'Segoe UI',sans-serif" font-size="24" font-weight="800" fill="#fff" text-anchor="middle">10</text>
+    <text x="270" y="50" font-family="'Segoe UI',sans-serif" font-size="9" fill="#ddd6fe" text-anchor="middle" letter-spacing="1">OWASP M-T10</text>
+  </g>
+
+  <!-- Right panel: platforms -->
+  <g transform="translate(830, 145)">
+    <rect x="0" y="0" width="320" height="34" rx="8" fill="#fff" opacity="0.08"/>
+    <text x="12" y="14" font-family="'Segoe UI',sans-serif" font-size="8" fill="#ddd6fe" letter-spacing="1.5" opacity="0.7">PLATFORMS</text>
+    <text x="12" y="27" font-family="monospace" font-size="11" fill="#ede9fe">
+      Android APK  |  iOS IPA  |  Zero Dependencies
+    </text>
+  </g>
+
+  <!-- Right panel: outputs -->
+  <g transform="translate(830, 193)">
+    <rect x="0" y="0" width="320" height="34" rx="8" fill="#fff" opacity="0.08"/>
+    <text x="12" y="14" font-family="'Segoe UI',sans-serif" font-size="8" fill="#ddd6fe" letter-spacing="1.5" opacity="0.7">OUTPUT FORMATS</text>
+    <text x="12" y="27" font-family="monospace" font-size="11" fill="#ede9fe">
+      Console  JSON  HTML  SARIF
+    </text>
+  </g>
+
+  <!-- Version badge -->
+  <g transform="translate(1060, 245)">
+    <rect x="0" y="0" width="90" height="26" rx="13" fill="#fff" opacity="0.2"/>
+    <text x="45" y="18" font-family="monospace" font-size="13" fill="#fff" text-anchor="middle" font-weight="600">v1.0.0</text>
+  </g>
+</svg>
