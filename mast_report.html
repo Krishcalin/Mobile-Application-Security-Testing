@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>MAST Scanner Report</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f172a;color:#e2e8f0;font-family:'Segoe UI',system-ui,sans-serif;padding:2rem}
+h1{font-size:1.8rem;margin-bottom:.5rem}
+.meta{color:#94a3b8;margin-bottom:1rem}
+.masvs-cov{background:#1e293b;border-radius:8px;padding:1rem 1.5rem;margin-bottom:1.5rem;font-size:.85rem}
+.masvs-cov .label{color:#94a3b8;text-transform:uppercase;letter-spacing:1px;font-size:.7rem;margin-bottom:.5rem}
+.masvs-tags{display:flex;gap:.5rem;flex-wrap:wrap}
+.masvs-tag{background:#334155;color:#e2e8f0;padding:3px 10px;border-radius:4px;font-size:.78rem}
+.cards{display:flex;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
+.card{background:#1e293b;border-radius:8px;padding:1rem 1.5rem;min-width:120px;text-align:center}
+.card .num{font-size:2rem;font-weight:800}
+.card .label{font-size:.75rem;color:#94a3b8;text-transform:uppercase;letter-spacing:1px}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{text-align:left;padding:.6rem;background:#1e293b;color:#94a3b8;border-bottom:1px solid #334155;position:sticky;top:0}
+td{padding:.6rem;border-bottom:1px solid #1e293b;vertical-align:top}
+tr:hover{background:#1e293b40}
+code{background:#334155;padding:1px 5px;border-radius:3px;font-size:.82rem}
+</style></head><body>
+<h1>MAST Scanner Report</h1>
+<div class="meta">Platform: ANDROID | File: test_vulnerable.apk | 2026-03-31 05:21:27 UTC | v2.1.0</div>
+<div class="masvs-cov">
+<div class="label">MASVS v2 Coverage (11 controls across 6 groups)</div>
+<div class="masvs-tags"><span class="masvs-tag">MASVS-CODE-1</span><span class="masvs-tag">MASVS-CODE-2</span><span class="masvs-tag">MASVS-CODE-3</span><span class="masvs-tag">MASVS-CRYPTO-1</span><span class="masvs-tag">MASVS-CRYPTO-2</span><span class="masvs-tag">MASVS-NETWORK-1</span><span class="masvs-tag">MASVS-NETWORK-2</span><span class="masvs-tag">MASVS-PLATFORM-1</span><span class="masvs-tag">MASVS-PLATFORM-3</span><span class="masvs-tag">MASVS-RESILIENCE-2</span><span class="masvs-tag">MASVS-STORAGE-1</span></div>
+</div>
+<div class="cards">
+<div class="card"><div class="num" style="color:#dc2626">5</div><div class="label">Critical</div></div>
+<div class="card"><div class="num" style="color:#ea580c">13</div><div class="label">High</div></div>
+<div class="card"><div class="num" style="color:#ca8a04">21</div><div class="label">Medium</div></div>
+<div class="card"><div class="num" style="color:#0891b2">4</div><div class="label">Low</div></div>
+<div class="card"><div class="num" style="color:#6b7280">0</div><div class="label">Info</div></div>
+</div>
+<table><thead><tr><th>Severity</th><th>Rule</th><th>Name</th><th>Platform</th><th>File</th><th>Evidence</th><th>Description</th><th>CWE</th><th>MASVS</th></tr></thead>
+<tbody><tr>
+<td><span style="color:#dc2626;font-weight:700">CRITICAL</span></td>
+<td><code>MAST-MANIFEST-001</code></td>
+<td>Application is debuggable</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">android:debuggable="true"</td>
+<td style="font-size:.85em">Application has debugging enabled, allowing attackers to attach debuggers and inspect runtime data.</td>
+<td>CWE-215</td>
+<td><code>MASVS-RESILIENCE-2</code></td>
+</tr>
+<tr>
+<td><span style="color:#dc2626;font-weight:700">CRITICAL</span></td>
+<td><code>MAST-SECRET-001</code></td>
+<td>AWS Access Key ID</td>
+<td>android</td>
+<td><code>classes.dex / resources</code></td>
+<td style="font-size:.85em">AKIAIOSFODNN7EXAMPLE</td>
+<td style="font-size:.85em">Hardcoded aws access key id found in application strings.</td>
+<td>CWE-798</td>
+<td><code>MASVS-CRYPTO-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#dc2626;font-weight:700">CRITICAL</span></td>
+<td><code>MAST-SECRET-002</code></td>
+<td>AWS Secret Key</td>
+<td>android</td>
+<td><code>classes.dex / resources</code></td>
+<td style="font-size:.85em">secret_key="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</td>
+<td style="font-size:.85em">Hardcoded aws secret key found in application strings.</td>
+<td>CWE-798</td>
+<td><code>MASVS-CRYPTO-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#dc2626;font-weight:700">CRITICAL</span></td>
+<td><code>MAST-SECRET-007</code></td>
+<td>Private Key</td>
+<td>android</td>
+<td><code>classes.dex / resources</code></td>
+<td style="font-size:.85em">-----BEGIN RSA PRIVATE KEY-----</td>
+<td style="font-size:.85em">Hardcoded private key found in application strings.</td>
+<td>CWE-798</td>
+<td><code>MASVS-CRYPTO-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#dc2626;font-weight:700">CRITICAL</span></td>
+<td><code>MAST-COMMON-SEC-001</code></td>
+<td>AWS Access Key ID</td>
+<td>common</td>
+<td><code>strings</code></td>
+<td style="font-size:.85em">AKIAIOSFODNN7EXAMPLE</td>
+<td style="font-size:.85em">Hardcoded aws access key id found in application.</td>
+<td>CWE-798</td>
+<td><code>MASVS-CRYPTO-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ea580c;font-weight:700">HIGH</span></td>
+<td><code>MAST-MANIFEST-002</code></td>
+<td>Application allows backup</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">android:allowBackup="true"</td>
+<td style="font-size:.85em">Application data can be backed up via ADB, potentially exposing sensitive data.</td>
+<td>CWE-530</td>
+<td><code>MASVS-STORAGE-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ea580c;font-weight:700">HIGH</span></td>
+<td><code>MAST-MANIFEST-003</code></td>
+<td>Exported Activity without permission</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">.ExportedActivity exported="true" without permission</td>
+<td style="font-size:.85em">Activity '.ExportedActivity' is exported without permission protection, accessible by other apps.</td>
+<td>CWE-926</td>
+<td><code>MASVS-PLATFORM-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ea580c;font-weight:700">HIGH</span></td>
+<td><code>MAST-MANIFEST-003</code></td>
+<td>Exported Activity without permission</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">.MainActivity exported="true" without permission</td>
+<td style="font-size:.85em">Activity '.MainActivity' is exported without permission protection, accessible by other apps.</td>
+<td>CWE-926</td>
+<td><code>MASVS-PLATFORM-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ea580c;font-weight:700">HIGH</span></td>
+<td><code>MAST-MANIFEST-004</code></td>
+<td>Exported Service without permission</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">.ExportedService exported="true" without permission</td>
+<td style="font-size:.85em">Service '.ExportedService' is exported without permission protection, accessible by other apps.</td>
+<td>CWE-926</td>
+<td><code>MASVS-PLATFORM-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ea580c;font-weight:700">HIGH</span></td>
+<td><code>MAST-MANIFEST-006</code></td>
+<td>Exported Content Provider without permission</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">.ExportedProvider exported="true" without permission</td>
+<td style="font-size:.85em">Content Provider '.ExportedProvider' is exported without permission protection, accessible by other apps.</td>
+<td>CWE-926</td>
+<td><code>MASVS-PLATFORM-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ea580c;font-weight:700">HIGH</span></td>
+<td><code>MAST-MANIFEST-007</code></td>
+<td>Cleartext traffic allowed</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">usesCleartextTraffic="true"</td>
+<td style="font-size:.85em">Application allows cleartext HTTP traffic, exposing data to network interception.</td>
+<td>CWE-319</td>
+<td><code>MASVS-NETWORK-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ea580c;font-weight:700">HIGH</span></td>
+<td><code>MAST-SECRET-003</code></td>
+<td>Google API Key</td>
+<td>android</td>
+<td><code>classes.dex / resources</code></td>
+<td style="font-size:.85em">AIzaSyA1234567890abcdefghijklmnopqrstuv</td>
+<td style="font-size:.85em">Hardcoded google api key found in application strings.</td>
+<td>CWE-798</td>
+<td><code>MASVS-CRYPTO-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ea580c;font-weight:700">HIGH</span></td>
+<td><code>MAST-SECRET-006</code></td>
+<td>Hardcoded Password</td>
+<td>android</td>
+<td><code>classes.dex / resources</code></td>
+<td style="font-size:.85em">password = "SuperSecret123!"</td>
+<td style="font-size:.85em">Hardcoded hardcoded password found in application strings.</td>
+<td>CWE-798</td>
+<td><code>MASVS-CRYPTO-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ea580c;font-weight:700">HIGH</span></td>
+<td><code>MAST-SECRET-008</code></td>
+<td>OAuth Client Secret</td>
+<td>android</td>
+<td><code>classes.dex / resources</code></td>
+<td style="font-size:.85em">client_secret = "my-oauth-client-secret-value"</td>
+<td style="font-size:.85em">Hardcoded oauth client secret found in application strings.</td>
+<td>CWE-798</td>
+<td><code>MASVS-CRYPTO-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ea580c;font-weight:700">HIGH</span></td>
+<td><code>DEP-ANDROID-CVE20210341</code></td>
+<td>Vulnerable library: okhttp 3 (CVE-2021-0341)</td>
+<td>android</td>
+<td><code>classes.dex</code></td>
+<td style="font-size:.85em">okhttp 3 (affected: &lt;4.9.1)</td>
+<td style="font-size:.85em">OkHttp: Certificate pinning bypass due to hostname verification flaw in OkHostnameVerifier.</td>
+<td>CWE-1395</td>
+<td><code>MASVS-CODE-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ea580c;font-weight:700">HIGH</span></td>
+<td><code>MAST-COMMON-SEC-002</code></td>
+<td>Google Cloud API Key</td>
+<td>common</td>
+<td><code>strings</code></td>
+<td style="font-size:.85em">AIzaSyA1234567890abcdefghijklmnopqrstuv</td>
+<td style="font-size:.85em">Hardcoded google cloud api key found in application.</td>
+<td>CWE-798</td>
+<td><code>MASVS-CRYPTO-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ea580c;font-weight:700">HIGH</span></td>
+<td><code>MAST-COMMON-SEC-005</code></td>
+<td>SendGrid API Key</td>
+<td>common</td>
+<td><code>strings</code></td>
+<td style="font-size:.85em">SG.abcdefghijklmnopqrstuv</td>
+<td style="font-size:.85em">Hardcoded sendgrid api key found in application.</td>
+<td>CWE-798</td>
+<td><code>MASVS-CRYPTO-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ea580c;font-weight:700">HIGH</span></td>
+<td><code>MAST-COMMON-CRYPTO-001</code></td>
+<td>Hardcoded encryption key</td>
+<td>common</td>
+<td><code>strings</code></td>
+<td style="font-size:.85em">secret_key="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"</td>
+<td style="font-size:.85em">Cryptographic issue: Hardcoded encryption key.</td>
+<td>CWE-321</td>
+<td><code>MASVS-CRYPTO-2</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-MANIFEST-005</code></td>
+<td>Exported Broadcast Receiver without permission</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">.ExportedReceiver exported="true" without permission</td>
+<td style="font-size:.85em">Broadcast Receiver '.ExportedReceiver' is exported without permission protection, accessible by other apps.</td>
+<td>CWE-926</td>
+<td><code>MASVS-PLATFORM-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-MANIFEST-008</code></td>
+<td>Low minimum SDK version (19)</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">minSdkVersion=19</td>
+<td style="font-size:.85em">App supports Android SDK 19 (&lt; 23/Android 6.0), missing runtime permission model.</td>
+<td>CWE-693</td>
+<td><code>MASVS-CODE-3</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-MANIFEST-009</code></td>
+<td>Dangerous permission: Camera access</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">android.permission.CAMERA</td>
+<td style="font-size:.85em">App requests dangerous permission 'android.permission.CAMERA' (Camera access).</td>
+<td>CWE-250</td>
+<td><code>MASVS-PLATFORM-3</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-MANIFEST-009</code></td>
+<td>Dangerous permission: SMS read access</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">android.permission.READ_SMS</td>
+<td style="font-size:.85em">App requests dangerous permission 'android.permission.READ_SMS' (SMS read access).</td>
+<td>CWE-250</td>
+<td><code>MASVS-PLATFORM-3</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-MANIFEST-009</code></td>
+<td>Dangerous permission: SMS send access</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">android.permission.SEND_SMS</td>
+<td style="font-size:.85em">App requests dangerous permission 'android.permission.SEND_SMS' (SMS send access).</td>
+<td>CWE-250</td>
+<td><code>MASVS-PLATFORM-3</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-MANIFEST-009</code></td>
+<td>Dangerous permission: Contacts access</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">android.permission.READ_CONTACTS</td>
+<td style="font-size:.85em">App requests dangerous permission 'android.permission.READ_CONTACTS' (Contacts access).</td>
+<td>CWE-250</td>
+<td><code>MASVS-PLATFORM-3</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-MANIFEST-009</code></td>
+<td>Dangerous permission: Fine location access</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">android.permission.ACCESS_FINE_LOCATION</td>
+<td style="font-size:.85em">App requests dangerous permission 'android.permission.ACCESS_FINE_LOCATION' (Fine location access).</td>
+<td>CWE-250</td>
+<td><code>MASVS-PLATFORM-3</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-MANIFEST-009</code></td>
+<td>Dangerous permission: Microphone access</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">android.permission.RECORD_AUDIO</td>
+<td style="font-size:.85em">App requests dangerous permission 'android.permission.RECORD_AUDIO' (Microphone access).</td>
+<td>CWE-250</td>
+<td><code>MASVS-PLATFORM-3</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-MANIFEST-009</code></td>
+<td>Dangerous permission: Phone state access</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">android.permission.READ_PHONE_STATE</td>
+<td style="font-size:.85em">App requests dangerous permission 'android.permission.READ_PHONE_STATE' (Phone state access).</td>
+<td>CWE-250</td>
+<td><code>MASVS-PLATFORM-3</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-MANIFEST-009</code></td>
+<td>Dangerous permission: Call log access</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">android.permission.READ_CALL_LOG</td>
+<td style="font-size:.85em">App requests dangerous permission 'android.permission.READ_CALL_LOG' (Call log access).</td>
+<td>CWE-250</td>
+<td><code>MASVS-PLATFORM-3</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-MANIFEST-009</code></td>
+<td>Dangerous permission: External storage write</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">android.permission.WRITE_EXTERNAL_STORAGE</td>
+<td style="font-size:.85em">App requests dangerous permission 'android.permission.WRITE_EXTERNAL_STORAGE' (External storage write).</td>
+<td>CWE-250</td>
+<td><code>MASVS-PLATFORM-3</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-MANIFEST-010</code></td>
+<td>SYSTEM_ALERT_WINDOW permission</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">android.permission.SYSTEM_ALERT_WINDOW</td>
+<td style="font-size:.85em">App can draw over other apps, potentially used for tapjacking/overlay attacks.</td>
+<td>CWE-1021</td>
+<td><code>MASVS-PLATFORM-3</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-MANIFEST-011</code></td>
+<td>Missing network security config</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">networkSecurityConfig not set</td>
+<td style="font-size:.85em">No custom network security configuration. Relying on platform defaults.</td>
+<td>CWE-295</td>
+<td><code>MASVS-NETWORK-2</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-SECRET-005</code></td>
+<td>Generic API Key/Token</td>
+<td>android</td>
+<td><code>classes.dex / resources</code></td>
+<td style="font-size:.85em">api_key = "sk_test_FAKE_DO_NOT_USE_abcdefgh"</td>
+<td style="font-size:.85em">Hardcoded generic api key/token found in application strings.</td>
+<td>CWE-798</td>
+<td><code>MASVS-CRYPTO-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-SECRET-004</code></td>
+<td>Firebase Database URL</td>
+<td>android</td>
+<td><code>classes.dex / resources</code></td>
+<td style="font-size:.85em">https://test-project.firebaseio.com</td>
+<td style="font-size:.85em">Hardcoded firebase database url found in application strings.</td>
+<td>CWE-798</td>
+<td><code>MASVS-CRYPTO-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>DEP-ANDROID-CVE20230833</code></td>
+<td>Vulnerable library: okhttp 3 (CVE-2023-0833)</td>
+<td>android</td>
+<td><code>classes.dex</code></td>
+<td style="font-size:.85em">okhttp 3 (affected: &lt;4.9.3)</td>
+<td style="font-size:.85em">OkHttp: Information disclosure via HTTP/2 connection coalescing allows requests to wrong host.</td>
+<td>CWE-1395</td>
+<td><code>MASVS-CODE-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-COMMON-SEC-006</code></td>
+<td>Generic Bearer Token</td>
+<td>common</td>
+<td><code>strings</code></td>
+<td style="font-size:.85em">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.dozjgNryP4J3jVmNHl0w</td>
+<td style="font-size:.85em">Hardcoded generic bearer token found in application.</td>
+<td>CWE-798</td>
+<td><code>MASVS-CRYPTO-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-COMMON-URL-002</code></td>
+<td>Staging/internal URL found</td>
+<td>common</td>
+<td><code>strings</code></td>
+<td style="font-size:.85em">https://staging.</td>
+<td style="font-size:.85em">Application contains staging or internal URLs that should not be in production.</td>
+<td>CWE-200</td>
+<td><code>MASVS-CODE-2</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-COMMON-URL-001</code></td>
+<td>Cleartext HTTP endpoint</td>
+<td>common</td>
+<td><code>strings</code></td>
+<td style="font-size:.85em">http://api.example.com/users/login</td>
+<td style="font-size:.85em">Application contains cleartext HTTP URLs.</td>
+<td>CWE-319</td>
+<td><code>MASVS-NETWORK-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-COMMON-CRYPTO-003</code></td>
+<td>Insecure random</td>
+<td>common</td>
+<td><code>strings</code></td>
+<td style="font-size:.85em">Math.random</td>
+<td style="font-size:.85em">Cryptographic issue: Insecure random.</td>
+<td>CWE-330</td>
+<td><code>MASVS-CRYPTO-2</code></td>
+</tr>
+<tr>
+<td><span style="color:#ca8a04;font-weight:700">MEDIUM</span></td>
+<td><code>MAST-COMMON-CRYPTO-005</code></td>
+<td>Base64 encoding as pseudo-encryption</td>
+<td>common</td>
+<td><code>strings</code></td>
+<td style="font-size:.85em">base64.encode(password</td>
+<td style="font-size:.85em">Cryptographic issue: Base64 encoding as pseudo-encryption.</td>
+<td>CWE-261</td>
+<td><code>MASVS-CRYPTO-2</code></td>
+</tr>
+<tr>
+<td><span style="color:#0891b2;font-weight:700">LOW</span></td>
+<td><code>MAST-MANIFEST-012</code></td>
+<td>Custom task affinity set</td>
+<td>android</td>
+<td><code>AndroidManifest.xml</code></td>
+<td style="font-size:.85em">taskAffinity=com.other.hijack.app</td>
+<td style="font-size:.85em">Custom task affinity may enable task hijacking attacks (StrandHogg).</td>
+<td>CWE-269</td>
+<td><code>MASVS-PLATFORM-1</code></td>
+</tr>
+<tr>
+<td><span style="color:#0891b2;font-weight:700">LOW</span></td>
+<td><code>MAST-COMMON-URL-004</code></td>
+<td>Hardcoded IP address</td>
+<td>common</td>
+<td><code>strings</code></td>
+<td style="font-size:.85em">http://192.168.1.100:8080/</td>
+<td style="font-size:.85em">Hardcoded IP address found — makes infrastructure changes difficult.</td>
+<td>CWE-798</td>
+<td><code>MASVS-CODE-2</code></td>
+</tr>
+<tr>
+<td><span style="color:#0891b2;font-weight:700">LOW</span></td>
+<td><code>MAST-COMMON-URL-003</code></td>
+<td>Localhost reference</td>
+<td>common</td>
+<td><code>strings</code></td>
+<td style="font-size:.85em">https://localhost:3000/debug</td>
+<td style="font-size:.85em">Localhost/127.0.0.1 reference found — likely debug leftover.</td>
+<td>CWE-200</td>
+<td><code>MASVS-CODE-2</code></td>
+</tr>
+<tr>
+<td><span style="color:#0891b2;font-weight:700">LOW</span></td>
+<td><code>MAST-COMMON-CRYPTO-002</code></td>
+<td>MD5 hash usage</td>
+<td>common</td>
+<td><code>strings</code></td>
+<td style="font-size:.85em">MD5(</td>
+<td style="font-size:.85em">Cryptographic issue: MD5 hash usage.</td>
+<td>CWE-328</td>
+<td><code>MASVS-CRYPTO-2</code></td>
+</tr>
+</tbody></table>
+</body></html>

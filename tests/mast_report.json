@@ -1,0 +1,16 @@
+{
+  "scanner": "MAST Scanner",
+  "version": "2.1.0",
+  "platform": "",
+  "file": "",
+  "scan_date": "2026-03-31T02:23:49.948722+00:00",
+  "app_info": {},
+  "summary": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0,
+    "INFO": 0
+  },
+  "findings": []
+}
